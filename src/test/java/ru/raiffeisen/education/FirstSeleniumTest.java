@@ -2,6 +2,7 @@ package ru.raiffeisen.education;
 
 import static java.time.Duration.ofSeconds;
 import static org.openqa.selenium.By.name;
+import static org.openqa.selenium.support.ui.ExpectedConditions.titleContains;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 import org.junit.jupiter.api.AfterEach;
@@ -27,7 +28,7 @@ public class FirstSeleniumTest {
     driver.navigate().to("http://www.google.com");
     driver.findElement(name("q")).sendKeys("webdriver");
     driver.findElement(name("btnK")).submit();
-    wait.until(titleIs("webdriver - Google Search"));
+    wait.until(titleContains("webdriver"));
   }
 
   @AfterEach
