@@ -22,12 +22,10 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 public class Task7Test {
 
     private WebDriver driver;
-    private WebDriverWait wait;
 
     @BeforeEach
     void init() {
         this.driver = new ChromeDriver();
-        this.wait = new WebDriverWait(driver, ofSeconds(3L));
     }
 
     @Test
