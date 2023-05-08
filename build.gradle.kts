@@ -15,6 +15,9 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.seleniumhq.selenium:selenium-java:4.8.3")
+    testImplementation("org.assertj:assertj-core:3.24.2")
+    testCompileOnly("org.projectlombok:lombok:1.18.8")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.8")
 }
 
 tasks.test {
