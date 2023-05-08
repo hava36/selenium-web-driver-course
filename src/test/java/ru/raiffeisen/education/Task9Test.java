@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.stream.Collectors;
 
 import static java.time.Duration.ofSeconds;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.openqa.selenium.By.cssSelector;
 
 public class Task9Test {

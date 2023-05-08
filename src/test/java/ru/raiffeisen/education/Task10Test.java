@@ -14,7 +14,6 @@ import ru.raiffeisen.education.util.ProductPropertyExtractorFromList;
 import static java.time.Duration.ofSeconds;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.openqa.selenium.By.cssSelector;
 
 public class Task10Test {
@@ -51,10 +50,10 @@ public class Task10Test {
                 () -> assertThat(productCard.getName()).isEqualTo(productFromList.getName()),
                 () -> assertThat(productCard.getRegularPriceProperty().getPrice()).isEqualTo(productFromList.getRegularPriceProperty().getPrice()),
                 () -> assertThat(productCard.getCampaignPriceProperty().getPrice()).isEqualTo(productFromList.getCampaignPriceProperty().getPrice()),
-                () -> assertThat(productFromList.getRegularPriceProperty().getColor()).isEqualTo("rgba(119, 119, 119, 1)"),
-                () -> assertThat(productFromList.getCampaignPriceProperty().getColor()).isEqualTo("rgba(204, 0, 0, 1)"),
-                () -> assertThat(productCard.getRegularPriceProperty().getColor()).isEqualTo("rgba(102, 102, 102, 1)"),
-                () -> assertThat(productCard.getCampaignPriceProperty().getColor()).isEqualTo("rgba(204, 0, 0, 1)"),
+                () -> assertThat(productFromList.getRegularPriceProperty().getColor()).isEqualTo(new String[] {"119", "119", "119"}),
+                () -> assertThat(productFromList.getCampaignPriceProperty().getColor()).isEqualTo(new String[] {"204", "0", "0"}),
+                () -> assertThat(productCard.getRegularPriceProperty().getColor()).isEqualTo(new String[] {"102", "102", "102"}),
+                () -> assertThat(productCard.getCampaignPriceProperty().getColor()).isEqualTo(new String[] {"204", "0", "0"}),
                 () -> assertThat(productCard.campaignPriceIsLargerThanRegularPrice()).isTrue(),
                 () -> assertThat(productFromList.campaignPriceIsLargerThanRegularPrice()).isTrue()
         );

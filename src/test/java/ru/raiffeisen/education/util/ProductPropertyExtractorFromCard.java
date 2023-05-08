@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import static org.openqa.selenium.By.cssSelector;
 
 public class ProductPropertyExtractorFromCard implements ProductPropertyExtractor {
+
+    private final CssColorExtractor cssColorExtractor = new CssColorExtractorImpl();
+
     @Override
     public ProductProperty extract(WebElement webElement) {
 
@@ -12,14 +15,13 @@ public class ProductPropertyExtractorFromCard implements ProductPropertyExtracto
 
         var productElementInListRegularPriceElement = webElement.findElement(cssSelector("div.price-wrapper s.regular-price"));
         var productElementInListRegularPriceElementValue = productElementInListRegularPriceElement.getText();
-        var productElementInListRegularPriceElementColor = productElementInListRegularPriceElement.getCssValue("color");
+        var productElementInListRegularPriceElementColor = cssColorExtractor.extractorColor(productElementInListRegularPriceElement.getCssValue("color"));
         var productElementInListRegularPriceElementFontSize = productElementInListRegularPriceElement.getCssValue("font-size");
 
         var productElementInListCampaignPriceElement = webElement.findElement(cssSelector("div.price-wrapper strong.campaign-price"));
         var productElementInListCampaignPriceElementValue = productElementInListCampaignPriceElement.getText();
-        var productElementInListCampaignPriceElementColor = productElementInListCampaignPriceElement.getCssValue("color");
+        var productElementInListCampaignPriceElementColor = cssColorExtractor.extractorColor(productElementInListCampaignPriceElement.getCssValue("color"));
         var productElementInListCampaignPriceElementFontSize = productElementInListCampaignPriceElement.getCssValue("font-size");
-
 
         return ProductProperty.builder()
                 .name(productElementInListName)
