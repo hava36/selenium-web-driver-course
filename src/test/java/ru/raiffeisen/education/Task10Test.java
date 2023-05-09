@@ -50,10 +50,30 @@ public class Task10Test {
                 () -> assertThat(productCard.getName()).isEqualTo(productFromList.getName()),
                 () -> assertThat(productCard.getRegularPriceProperty().getPrice()).isEqualTo(productFromList.getRegularPriceProperty().getPrice()),
                 () -> assertThat(productCard.getCampaignPriceProperty().getPrice()).isEqualTo(productFromList.getCampaignPriceProperty().getPrice()),
-                () -> assertThat(productFromList.getRegularPriceProperty().getColor()).isEqualTo(new String[] {"119", "119", "119"}),
-                () -> assertThat(productFromList.getCampaignPriceProperty().getColor()).isEqualTo(new String[] {"204", "0", "0"}),
-                () -> assertThat(productCard.getRegularPriceProperty().getColor()).isEqualTo(new String[] {"102", "102", "102"}),
-                () -> assertThat(productCard.getCampaignPriceProperty().getColor()).isEqualTo(new String[] {"204", "0", "0"}),
+                () -> {
+                    var rgbColor = productFromList.getRegularPriceProperty().getColor();
+                    assertThat(rgbColor).hasSize(3);
+                    assertThat(rgbColor[0]).isEqualTo(rgbColor[1]).isEqualTo(rgbColor[2]);
+                },
+                () -> {
+                    var rgbColor = productFromList.getCampaignPriceProperty().getColor();
+                    assertThat(rgbColor).hasSize(3);
+                    assertThat(rgbColor[1]).isEqualTo(rgbColor[2]).isZero();
+                },
+                () -> {
+                    var rgbColor = productCard.getRegularPriceProperty().getColor();
+                    assertThat(rgbColor).hasSize(3);
+                    assertThat(rgbColor[0]).isEqualTo(rgbColor[1]).isEqualTo(rgbColor[2]);
+                },
+                () -> {
+                    var rgbColor = productCard.getCampaignPriceProperty().getColor();
+                    assertThat(rgbColor).hasSize(3);
+                    assertThat(rgbColor[1]).isEqualTo(rgbColor[2]).isZero();
+               },
+                () -> assertThat(productFromList.getRegularPriceProperty().getTextDecoration()).startsWith("line-through solid"),
+                () -> assertThat(productCard.getRegularPriceProperty().getTextDecoration()).startsWith("line-through solid"),
+                () -> assertThat(productFromList.getCampaignPriceProperty().getFontWeight()).isEqualTo("700"),
+                () -> assertThat(productCard.getCampaignPriceProperty().getFontWeight()).isEqualTo("700"),
                 () -> assertThat(productCard.campaignPriceIsLargerThanRegularPrice()).isTrue(),
                 () -> assertThat(productFromList.campaignPriceIsLargerThanRegularPrice()).isTrue()
         );

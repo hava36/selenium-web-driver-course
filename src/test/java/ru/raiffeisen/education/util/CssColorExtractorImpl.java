@@ -4,10 +4,12 @@ import java.util.Arrays;
 
 public class CssColorExtractorImpl implements CssColorExtractor {
     @Override
-    public String[] extractorColor(String color) {
+    public Short[] extractorColor(String color) {
         return Arrays.stream(color.replace("rgb(", "").replace(")", "")
-                .replace("rgba(", "").replace(")", "")
-                .replace(" ", "")
-                .split(",")).limit(3).toArray(String[]::new);
+                        .replace("rgba(", "").replace(")", "")
+                        .replace(" ", "")
+                        .split(","))
+                .map(Short::parseShort)
+                .limit(3).toArray(Short[]::new);
     }
 }

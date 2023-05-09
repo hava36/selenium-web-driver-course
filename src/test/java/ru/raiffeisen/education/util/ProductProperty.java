@@ -22,6 +22,9 @@ public class ProductProperty {
     }
 
     public boolean campaignPriceIsLargerThanRegularPrice() {
-        return campaignPriceProperty.getFontSize().compareTo(regularPriceProperty.getFontSize()) > 0;
+        var comparator = new FontSizeComparator();
+        var campaignFontSize = campaignPriceProperty.getFontSize();
+        var regularFontSize = regularPriceProperty.getFontSize();
+        return comparator.compare(regularFontSize, campaignFontSize) > 0;
     }
 }

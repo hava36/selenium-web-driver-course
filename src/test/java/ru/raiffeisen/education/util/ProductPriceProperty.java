@@ -6,18 +6,28 @@ import lombok.Builder;
 public class ProductPriceProperty {
 
     private String price;
-    private String[] color;
+    private Short[] color;
     private String fontSize;
+    private String textDecoration;
+    private String fontWeight;
 
     public String getPrice() {
         return price;
     }
 
-    public String[] getColor() {
+    public Short[] getColor() {
         return color;
     }
 
     public String getFontSize() {
         return fontSize;
+    }
+
+    public String getTextDecoration() {
+        return textDecoration;
+    }
+
+    public String getFontWeight() {
+        return fontWeight;
     }
 }

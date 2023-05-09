@@ -2,6 +2,6 @@ package ru.raiffeisen.education.util;
 
 public interface CssColorExtractor {
 
-    String[] extractorColor(String color);
+    Short[] extractorColor(String color);
 
 }
