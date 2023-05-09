@@ -4,6 +4,7 @@ package ru.raiffeisen.education;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -12,15 +13,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.UUID;
 
 import static java.time.Duration.ofSeconds;
+import static java.util.regex.Pattern.compile;
 import static org.openqa.selenium.By.cssSelector;
+import static org.openqa.selenium.By.xpath;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textMatches;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBe;
 
 public class Tas11Test {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     @BeforeEach
     void init() {
         this.driver = new ChromeDriver();
+        this.wait = new WebDriverWait(driver, ofSeconds(3L));
     }
 
     @Test
@@ -72,6 +79,12 @@ public class Tas11Test {
 
         var createAccountButton = driver.findElement(cssSelector("button[name=create_account]"));
         createAccountButton.click();
+
+        var jsDriver = (JavascriptExecutor) driver;
+        jsDriver.executeScript("document.getElementById('notices-wrapper').style.display='block';");
+
+        wait.until(textToBe(xpath("//*[@class='notice success']"),
+                "Your customer account has been created."));
 
     }
 
