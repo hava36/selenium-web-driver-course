@@ -44,10 +44,12 @@ public class Task17Test {
                 .map(webElement -> webElement.getAttribute("href"))
                 .collect(Collectors.toList());
 
-        productWebLinks.forEach(link -> driver.navigate().to(link));
+        productWebLinks.forEach(link -> {
+            driver.navigate().to(link);
+            assertThat(driver.manage().logs().get("browser").getAll())
+                    .isEmpty();
+        });
 
-        assertThat(driver.manage().logs().get("browser").getAll())
-                .isEmpty();
 
     }
 
