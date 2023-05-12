@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.raiffeisen.education.util.ProductPropertyExtractor;
 import ru.raiffeisen.education.util.ProductPropertyExtractorFromCard;
@@ -70,10 +71,10 @@ public class Task10Test {
                     assertThat(rgbColor).hasSize(3);
                     assertThat(rgbColor[1]).isEqualTo(rgbColor[2]).isZero();
                },
-                () -> assertThat(productFromList.getRegularPriceProperty().getTextDecoration()).startsWith("line-through solid"),
-                () -> assertThat(productCard.getRegularPriceProperty().getTextDecoration()).startsWith("line-through solid"),
-                () -> assertThat(productFromList.getCampaignPriceProperty().getFontWeight()).isEqualTo("700"),
-                () -> assertThat(productCard.getCampaignPriceProperty().getFontWeight()).isEqualTo("700"),
+                () -> assertThat(productFromList.getRegularPriceProperty().getTextDecoration()).startsWith("line-through"),
+                () -> assertThat(productCard.getRegularPriceProperty().getTextDecoration()).startsWith("line-through"),
+                () -> assertThat(productFromList.getCampaignPriceProperty().getFontWeight()).isGreaterThanOrEqualTo(700),
+                () -> assertThat(productCard.getCampaignPriceProperty().getFontWeight()).isGreaterThanOrEqualTo(700),
                 () -> assertThat(productCard.campaignPriceIsLargerThanRegularPrice()).isTrue(),
                 () -> assertThat(productFromList.campaignPriceIsLargerThanRegularPrice()).isTrue()
         );

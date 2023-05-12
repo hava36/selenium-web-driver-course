@@ -34,14 +34,14 @@ public class ProductPropertyExtractorFromList implements ProductPropertyExtracto
                         .color(productElementInListRegularPriceElementColor)
                         .fontSize(productElementInListRegularPriceElementFontSize)
                         .textDecoration(productElementInListRegularPriceElementTextDecoration)
-                        .fontWeight(productElementInListRegularPriceElementFontWeight)
+                        .fontWeight(Integer.parseInt(productElementInListRegularPriceElementFontWeight))
                         .build())
                 .campaignPriceProperty(ProductPriceProperty.builder()
                         .price(productElementInListCampaignPriceElementValue)
                         .color(productElementInListCampaignPriceElementColor)
                         .fontSize(productElementInListCampaignPriceElementFontSize)
                         .textDecoration(productElementInListCampaignPriceElementTextDecoration)
-                        .fontWeight(productElementInListCampaignPriceElementFontWeight)
+                        .fontWeight(Integer.parseInt(productElementInListCampaignPriceElementFontWeight))
                         .build())
                 .build();
     }

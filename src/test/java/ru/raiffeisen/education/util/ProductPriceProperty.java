@@ -9,7 +9,7 @@ public class ProductPriceProperty {
     private Short[] color;
     private String fontSize;
     private String textDecoration;
-    private String fontWeight;
+    private int fontWeight;
 
     public String getPrice() {
         return price;
@@ -27,7 +27,7 @@ public class ProductPriceProperty {
         return textDecoration;
     }
 
-    public String getFontWeight() {
+    public int getFontWeight() {
         return fontWeight;
     }
 }
