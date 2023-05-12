@@ -5,9 +5,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.UUID;
@@ -62,8 +62,12 @@ public class Tas11Test {
         var webElementCity = driver.findElement(cssSelector("input[name=city]"));
         webElementCity.sendKeys("Atalanta");
 
-        var countrySelect = new Select(driver.findElement(cssSelector("select[name=country_code]")));
-        countrySelect.selectByValue("US");
+        var countryArrowElement = driver.findElement(cssSelector("span.select2-selection__arrow"));
+        countryArrowElement.click();
+
+        var countrySearchField = driver.findElement(cssSelector("input.select2-search__field"));
+        countrySearchField.sendKeys("United States");
+        countrySearchField.sendKeys(Keys.ENTER);
 
         var webElementEmail = driver.findElement(cssSelector("input[name=email]"));
         webElementEmail.sendKeys(email);
@@ -83,8 +87,7 @@ public class Tas11Test {
         var jsDriver = (JavascriptExecutor) driver;
         jsDriver.executeScript("document.getElementById('notices-wrapper').style.display='block';");
 
-        wait.until(textToBe(xpath("//*[@class='notice success']"),
-                "Your customer account has been created."));
+        wait.until(textToBe(xpath("//*[@class='notice success']"), "Your customer account has been created."));
 
     }
 
@@ -100,6 +103,8 @@ public class Tas11Test {
 
         var loginButton = driver.findElement(cssSelector("button[name=login]"));
         loginButton.click();
+
+        wait.until(textMatches(xpath("//*[@class='notice success']"), compile("You are now logged in as [.]*")));
 
     }
 
