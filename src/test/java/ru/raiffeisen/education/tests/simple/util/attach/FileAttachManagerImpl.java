@@ -1,4 +1,4 @@
-package ru.raiffeisen.education.util.attach;
+package ru.raiffeisen.education.tests.simple.util.attach;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

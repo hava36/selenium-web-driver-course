@@ -1,4 +1,4 @@
-package ru.raiffeisen.education;
+package ru.raiffeisen.education.tests.simple;
 
 
 import com.google.common.collect.Comparators;

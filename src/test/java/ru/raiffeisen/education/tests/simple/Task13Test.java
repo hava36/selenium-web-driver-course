@@ -1,4 +1,4 @@
-package ru.raiffeisen.education;
+package ru.raiffeisen.education.tests.simple;
 
 
 import org.junit.jupiter.api.AfterEach;

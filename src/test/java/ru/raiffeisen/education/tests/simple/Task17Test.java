@@ -1,7 +1,6 @@
-package ru.raiffeisen.education;
+package ru.raiffeisen.education.tests.simple;
 
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +13,6 @@ import java.util.stream.Collectors;
 import static java.time.Duration.ofSeconds;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.openqa.selenium.By.cssSelector;
-import static ru.raiffeisen.education.util.ExpectedConditions.anyWindowOtherThan;
 
 public class Task17Test {
 

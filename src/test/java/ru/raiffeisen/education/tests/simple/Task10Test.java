@@ -1,4 +1,4 @@
-package ru.raiffeisen.education;
+package ru.raiffeisen.education.tests.simple;
 
 
 import org.junit.jupiter.api.AfterEach;
@@ -6,11 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.raiffeisen.education.util.ProductPropertyExtractor;
-import ru.raiffeisen.education.util.ProductPropertyExtractorFromCard;
-import ru.raiffeisen.education.util.ProductPropertyExtractorFromList;
+import ru.raiffeisen.education.tests.simple.util.ProductPropertyExtractor;
+import ru.raiffeisen.education.tests.simple.util.ProductPropertyExtractorFromCard;
+import ru.raiffeisen.education.tests.simple.util.ProductPropertyExtractorFromList;
 
 import static java.time.Duration.ofSeconds;
 import static org.assertj.core.api.Assertions.assertThat;

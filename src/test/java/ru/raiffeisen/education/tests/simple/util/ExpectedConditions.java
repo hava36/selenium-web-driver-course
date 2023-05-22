@@ -1,4 +1,4 @@
-package ru.raiffeisen.education.util;
+package ru.raiffeisen.education.tests.simple.util;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;

@@ -1,4 +1,4 @@
-package ru.raiffeisen.education;
+package ru.raiffeisen.education.tests.simple;
 
 
 import org.junit.jupiter.api.AfterEach;
@@ -8,8 +8,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.raiffeisen.education.util.attach.FileAttachManager;
-import ru.raiffeisen.education.util.attach.FileAttachManagerImpl;
+import ru.raiffeisen.education.tests.simple.util.attach.FileAttachManager;
+import ru.raiffeisen.education.tests.simple.util.attach.FileAttachManagerImpl;
 
 import java.net.URISyntaxException;
 import java.nio.file.Paths;

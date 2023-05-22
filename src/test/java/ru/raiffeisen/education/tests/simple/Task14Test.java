@@ -1,4 +1,4 @@
-package ru.raiffeisen.education;
+package ru.raiffeisen.education.tests.simple;
 
 
 import org.junit.jupiter.api.AfterEach;
@@ -6,18 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.time.Duration.ofSeconds;
 import static org.openqa.selenium.By.cssSelector;
-import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
-import static org.openqa.selenium.support.ui.ExpectedConditions.textToBe;
-import static ru.raiffeisen.education.util.ExpectedConditions.anyWindowOtherThan;
+import static ru.raiffeisen.education.tests.simple.util.ExpectedConditions.anyWindowOtherThan;
 
 public class Task14Test {
 
