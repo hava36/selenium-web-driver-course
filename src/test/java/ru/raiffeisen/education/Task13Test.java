@@ -26,7 +26,7 @@ public class Task13Test {
     @BeforeEach
     void init() {
         this.driver = new ChromeDriver();
-        this.wait = new WebDriverWait(driver, ofSeconds(5L)).ignoring(StaleElementReferenceException.class).pollingEvery(ofSeconds(1));
+        this.wait = new WebDriverWait(driver, ofSeconds(10L)).ignoring(StaleElementReferenceException.class).pollingEvery(ofSeconds(1));
     }
 
     @Test
@@ -89,7 +89,7 @@ public class Task13Test {
     }
 
     private void clickToProductCard() {
-        var shortProductLocator = cssSelector("ul.shortcuts li.shortcut a.inact");
+        var shortProductLocator = cssSelector("ul.shortcuts li.shortcut a[class *= 'act']");
         wait.until(elementToBeClickable(shortProductLocator));
         driver.findElement(shortProductLocator).click();
     }
